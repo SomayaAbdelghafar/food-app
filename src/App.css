@@ -1,0 +1,10 @@
+.authContainer{
+    /* background-color: aqua; */
+    background-image: url(assets/imgs/bg.png);
+    background-size: 100%;
+    background-position: center;
+}
+.overLay{
+    background: linear-gradient(51deg, rgba(55, 140, 47, 0.63) 0%, rgba(0, 0, 0, 0.62) 89%);
+
+}
