@@ -17,9 +17,9 @@ export default function Login({saveAdmindata }) {
       .post("http://upskilling-egypt.com:3002/api/v1/Users/Login", dataObject)
       .then((response) => {
         toast("you are logged in successfully");
-        setTimeout(() => {
-          navigate("/dashboard");
-        }, 5000);
+        
+           navigate("/dashboard");
+       
         localStorage.setItem("adminToken",response.data.token);
        saveAdmindata();
       })
@@ -32,7 +32,7 @@ export default function Login({saveAdmindata }) {
   return (
     <>
       <div className="authContainer container-fluid">
-        <ToastContainer />
+        
         <div className="overLay row vh-100 justify-content-center align-items-center">
           <div className="col-md-6 bg-white">
             <div className="logoContainer text-center">

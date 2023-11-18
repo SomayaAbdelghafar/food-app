@@ -15,6 +15,7 @@ import ForgetPass from './authModule/Components/ForgetPass/ForgetPass'
 import {jwtDecode} from 'jwt-decode'
 import ProtectedRoute from './sharedModule/components/protectedRoute/ProtectedRoute'
 import ChangePass from './ChangePassModule/components/changePass/ChangePass'
+import { ToastContainer } from 'react-toastify'
 function App() {
  const [adminData, setAdminData] = useState(null)
  
@@ -56,6 +57,7 @@ function App() {
   return (
     <>
      <RouterProvider router={routes} />
+     <ToastContainer />
       
     </>
   )

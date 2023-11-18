@@ -17,10 +17,11 @@ export default function ChangePass(props) {
         axios
           .put("http://upskilling-egypt.com:3002/api/v1/Users/ChangePassword", dataObject,
           {headers:{
-            Authorization:`Bearer${localStorage.getItem('adminToken')}`
+            Authorization:`Bearer ${localStorage.getItem('adminToken')}`
           }})
           .then((response) => {
             console.log(response);
+           
             
         //     toast("you are logged in successfully");
         //     setTimeout(() => {
@@ -33,6 +34,7 @@ export default function ChangePass(props) {
           .catch((error) => {
             toast(error.response.data.message);
           });
+          console.log(localStorage.getItem('adminToken') );
       };
   return (
     <>
