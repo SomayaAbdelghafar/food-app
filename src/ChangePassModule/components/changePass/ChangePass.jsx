@@ -21,20 +21,13 @@ export default function ChangePass(props) {
           }})
           .then((response) => {
             console.log(response);
-           
-            
-        //     toast("you are logged in successfully");
-        //     setTimeout(() => {
-        //       navigate("/dashboard");
-        //     }, 5000);
-        //     localStorage.setItem("adminToken",response.data.token);
-        //    saveAdmindata();
+           toast("password changed successfully");
+           navigate("/login");
           })
     
           .catch((error) => {
             toast(error.response.data.message);
           });
-          console.log(localStorage.getItem('adminToken') );
       };
   return (
     <>

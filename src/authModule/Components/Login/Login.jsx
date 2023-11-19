@@ -2,7 +2,7 @@ import React from "react";
 import logo from "../../../assets/imgs/logo.png";
 import { useForm } from "react-hook-form";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 export default function Login({saveAdmindata }) {
@@ -16,12 +16,11 @@ export default function Login({saveAdmindata }) {
     axios
       .post("http://upskilling-egypt.com:3002/api/v1/Users/Login", dataObject)
       .then((response) => {
-        toast("you are logged in successfully");
-        
-           navigate("/dashboard");
+        toast("you are logged in successfully"); 
+        navigate("/dashboard");
        
         localStorage.setItem("adminToken",response.data.token);
-       saveAdmindata();
+        saveAdmindata();
       })
 
       .catch((error) => {
@@ -43,7 +42,7 @@ export default function Login({saveAdmindata }) {
               <p>Welcome Back! Please enter your details</p>
               <div className="inputContainer py-2">
                 <input
-                  type="text"
+                  type="email"
                   placeholder="Enter your E-mail"
                   className="w-100 form-control"
                   {...register("email", {
@@ -75,8 +74,8 @@ export default function Login({saveAdmindata }) {
               </div>
               <div className="d-flex justify-content-between py-2 ">
                 <p>Register Now?</p>
-                <p className="text-success">Forgot Password?</p>
-              </div>
+                <Link className="text-success " to={"/requestResetPass"}>Forgot Password?</Link>
+              </div>r
               <button className=" btn btn-success w-100 py-1 my-4">
                 Login
               </button>

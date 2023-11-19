@@ -11,11 +11,12 @@ import Categories from './CategoriesModule/components/Categories/Categories'
 import Recipes from './RecipesModule/components/Recipes/Recipes'
 import UsersList from './UsersModule/components/UserList/UsersList'
 import MasterLayout from './sharedModule/components/MasterLayout/MasterLayout'
-import ForgetPass from './authModule/Components/ForgetPass/ForgetPass'
 import {jwtDecode} from 'jwt-decode'
 import ProtectedRoute from './sharedModule/components/protectedRoute/ProtectedRoute'
 import ChangePass from './ChangePassModule/components/changePass/ChangePass'
 import { ToastContainer } from 'react-toastify'
+import RequestResetPass from './authModule/Components/requestResetPass/RequestResetPass'
+import ResetPass from './authModule/Components/resetPass/ResetPass'
 function App() {
  const [adminData, setAdminData] = useState(null)
  
@@ -50,7 +51,8 @@ function App() {
     {path:"/",element:<AuthLayout />,errorElement:<NotFound />,children:[
       {index:true,element:<Login saveAdmindata={saveAdmindata}/>},
       {path:'login',element:<Login saveAdmindata={saveAdmindata}/>},
-      {path:'forgetPass',element:<ForgetPass />},
+      {path:'resetPass',element:<ResetPass />},
+      {path:'requestResetPass',element:<RequestResetPass />}
     ]}
   ])
 
