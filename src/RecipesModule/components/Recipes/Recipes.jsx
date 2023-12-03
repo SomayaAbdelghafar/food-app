@@ -80,6 +80,7 @@ export default function Recipes(props) {
       .then((res) => {
         console.log(res.data);
         setTagsList(res?.data);
+        console.log(tagsList);
       })
       .catch((err) => {
         console.log(err);
@@ -159,7 +160,7 @@ export default function Recipes(props) {
       .then((res) => {
         console.log("okkkkkk");
         toast("recipe updated successfully");
-        handleClose();
+        handleClose();0
         getRecipes();
       })
       .catch((err) => {
