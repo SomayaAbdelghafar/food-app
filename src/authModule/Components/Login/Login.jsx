@@ -14,7 +14,7 @@ export default function Login({saveAdmindata }) {
   } = useForm();
   const formSubmit = (dataObject) => {
     axios
-      .post("http://upskilling-egypt.com:3002/api/v1/Users/Login", dataObject)
+      .post("https://upskilling-egypt.com:443/api/v1/Users/Login", dataObject)
       .then((response) => {
         toast("you are logged in successfully"); 
         navigate("/dashboard");
@@ -24,7 +24,8 @@ export default function Login({saveAdmindata }) {
       })
 
       .catch((error) => {
-        toast(error.response.data.message);
+        // toast(error.response.data.message);
+        toast(error);
       });
   };
 
@@ -75,7 +76,7 @@ export default function Login({saveAdmindata }) {
               <div className="d-flex justify-content-between py-2 ">
                 <p>Register Now?</p>
                 <Link className="text-success " to={"/requestResetPass"}>Forgot Password?</Link>
-              </div>r
+              </div>
               <button className=" btn btn-success w-100 py-1 my-4">
                 Login
               </button>

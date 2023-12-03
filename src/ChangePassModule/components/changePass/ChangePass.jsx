@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-export default function ChangePass(props) {
+export default function ChangePass({handleClose}) {
     const navigate = useNavigate();
     const {
       register,
@@ -22,7 +22,9 @@ export default function ChangePass(props) {
           .then((response) => {
             console.log(response);
            toast("password changed successfully");
-           navigate("/login");
+           handleClose()
+           
+
           })
     
           .catch((error) => {
@@ -31,9 +33,10 @@ export default function ChangePass(props) {
       };
   return (
     <>
+      <ToastContainer />
       <div className="container-fluid">
-        <div className="row vh-100 justify-content-center align-items-center ">
-          <div className="col-md-6 bg-white">
+        <div className=" ">
+          <div>
             <div className="logoContainer text-center">
               <img src={logo} alt="" />
             </div>

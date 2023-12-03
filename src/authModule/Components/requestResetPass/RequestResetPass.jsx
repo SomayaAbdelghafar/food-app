@@ -16,7 +16,7 @@ export default function RequestResetPass (props) {
     } = useForm();
     const formSubmit = (dataObject) => {
         axios
-          .post("http://upskilling-egypt.com:3002/api/v1/Users/Reset/Request", dataObject)
+          .post("https://upskilling-egypt.com:3002/api/v1/Users/Reset/Request", dataObject)
        
 
           .then((response) => {

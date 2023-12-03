@@ -11,14 +11,27 @@ import "react-toastify/dist/ReactToastify.css";
      
 export default function ResetPass(props) {
     const navigate = useNavigate();
+    const validateConfirmPassword = (value) => {
+      const { password } = values;
+      if (value !== password) {
+        return "Passwords must match";
+      }
+      return null;
+    };
     const {
       register,
+      values,
       handleSubmit,
       formState: { errors },
-    } = useForm();
+    } = useForm({
+      validate: {
+        confirmPassword: validateConfirmPassword,
+      },
+    });
+   
     const formSubmit = (dataObject) => {
       axios
-        .post("http://upskilling-egypt.com:3002/api/v1/Users/Reset", dataObject)
+        .post("https://upskilling-egypt.com:3002/api/v1/Users/Reset", dataObject)
      
 
         .then((response) => {
@@ -80,25 +93,23 @@ export default function ResetPass(props) {
               </div>
               <div className="inputContainer py-2 ">
                 <input
-                  type="Password"
+                  type="password"
                   placeholder="confirmPassword"
                   className="w-100 form-control"
                   {...register("confirmPassword", { required: true})}
                   
                 />
-                {/* {errors.confirmPassword && errors.confirmPassword.type === "required" && (
+                {errors.confirmPassword && errors.confirmPassword.type === "required" && (
                   <span className="text-danger">confirmPassword is required</span>
                 )}
-                {errors.confirmPassword && errors.confirmPassword.type === "validate" && (
-                  <span className="text-danger">Passwords must match</span>
-                )} */}
+               
               </div>
               <div className="inputContainer py-2 ">
                 <input
                   type="text"
                   placeholder="OTP"
                   className="w-100 form-control"
-                  {...register("confirmPassword", { required: true })}
+                  {...register("seed", { required: true })}
                 />
                 {errors.seed && errors.seed.type === "required" && (
                   <span className="text-danger">OTP is required</span>
