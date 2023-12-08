@@ -142,7 +142,7 @@ export default function Recipes(props) {
       });
   };
 
-  const updateRecipe =(data,recipeId)=>{
+  const updateRecipe =(data)=>{
        console.log("heloooo");
     const addFormData = new FormData();
     addFormData.append("name", data["name"]);
@@ -158,9 +158,9 @@ export default function Recipes(props) {
         },
       })
       .then((res) => {
-        console.log("okkkkkk");
+       
         toast("recipe updated successfully");
-        handleClose();0
+        handleClose();
         getRecipes();
       })
       .catch((err) => {
